@@ -1,0 +1,35 @@
+# Rust-specific ignores
+/target
+**/*.rs.bk
+Cargo.lock
+
+# General build and temp files
+*.o
+*.so
+*.a
+*.out
+*.exe
+*.dll
+*.dylib
+
+# Editor and IDE files
+.idea/           # JetBrains IDEs (e.g., RustRover, IntelliJ)
+*.iml            # IntelliJ module files
+.vscode/         # Visual Studio Code
+*.swp            # Vim swap files
+*.swo
+
+# OS-generated files
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Dependency directories (if not using Cargo properly)
+deps/
+
+# IDEA
+.idea/
