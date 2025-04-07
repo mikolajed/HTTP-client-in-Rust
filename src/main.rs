@@ -3,6 +3,9 @@ use std::net::TcpStream;
 use sha2::{Digest, Sha256};
 use std::env;
 
+#[cfg(test)]
+mod tests;
+
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
     if args.len() != 3 {
@@ -22,11 +25,10 @@ fn main() -> io::Result<()> {
 
     let mut full_data = Vec::new();
     let mut bytes_downloaded = 0;
-    let chunk_size = 64 * 1024;
 
     while bytes_downloaded < total_size {
         let start = bytes_downloaded;
-        let end = (start + chunk_size - 1).min(total_size - 1);
+        let end = total_size - 1;
         println!("Requesting range: bytes={}-{}", start, end);
 
         match download_chunk(&server_addr, start, end + 1) {
